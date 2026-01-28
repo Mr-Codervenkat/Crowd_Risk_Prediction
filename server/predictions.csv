@@ -1,0 +1,21 @@
+id,timestamp,eventName,location,crowdCount,eventType,timeSlot,density,risk,recommendation
+1769497699851,2026-01-27T07:08:19.854569,Happy Street,Chennai,500,Concert,Evening,Medium,Safe,Crowd density is manageable.
+1769499662712,2026-01-27T07:41:02.714707,Image Based Prediction,Uploaded Image,0,Image,N/A,Low,Safe,Low crowd detected. Situation is safe.
+1769499670329,2026-01-27T07:41:10.329825,Image Based Prediction,Uploaded Image,0,Image,N/A,Low,Safe,Low crowd detected. Situation is safe.
+1769499691798,2026-01-27T07:41:31.798256,Image Based Prediction,Uploaded Image,0,Image,N/A,Low,Safe,Low crowd detected. Situation is safe.
+1769499711462,2026-01-27T07:41:51.463008,Image Based Prediction,Uploaded Image,0,Image,N/A,Low,Safe,Low crowd detected. Situation is safe.
+1769499718448,2026-01-27T07:41:58.448532,Image Based Prediction,Uploaded Image,0,Image,N/A,Low,Safe,Low crowd detected. Situation is safe.
+1769499730576,2026-01-27T07:42:10.576586,Image Based Prediction,Uploaded Image,0,Image,N/A,Low,Safe,Low crowd detected. Situation is safe.
+1769499846674,2026-01-27T07:44:06.675703,Image Based Prediction,Uploaded Image,0,Image,N/A,Low,Safe,Low crowd detected. Situation is safe.
+1769500019837,2026-01-27T07:46:59.838653,Image Based Prediction,Uploaded Image,44,Image,N/A,Medium,Warning,Moderate crowd detected. Monitor the situation.
+1769500020338,2026-01-27T07:47:00.338555,Image Based Prediction,Uploaded Image,49,Image,N/A,Medium,Warning,Moderate crowd detected. Monitor the situation.
+1769500036369,2026-01-27T07:47:16.369668,Image Based Prediction,Uploaded Image,35,Image,N/A,Medium,Warning,Moderate crowd detected. Monitor the situation.
+1769500185030,2026-01-27T07:49:45.030986,Anirudh Music Concert,Bangalore,5000,Concert,Night,High,Dangerous,URGENT: Deploy additional security staff immediately.
+1769500439726,2026-01-27T07:53:59.729014,Image Based Event,Uploaded Image,189,Image,Image,Low,Safe,Crowd is under control. Standard security measures are sufficient.
+1769501083546,2026-01-27T08:04:43.547813,Image Based Event,Uploaded Image,193,Image,Image,Low,Safe,Crowd is under control. Standard security measures are sufficient.
+1769503657645,2026-01-27T08:47:37.646181,Image Based Event,Uploaded Image,167,Image,Image,Low,Safe,Crowd is under control. Standard security measures are sufficient.
+1769581373063,2026-01-28T06:22:53.064769,Image Based Event,Uploaded Image,25,Image,Image,Low,Safe,Crowd is under control. Standard security measures are sufficient.
+1769581390549,2026-01-28T06:23:10.549679,Image Based Event,Uploaded Image,117,Image,Image,Low,Safe,Crowd is under control. Standard security measures are sufficient.
+1769581404977,2026-01-28T06:23:24.977346,Image Based Event,Uploaded Image,138,Image,Image,Low,Safe,Crowd is under control. Standard security measures are sufficient.
+1769581417473,2026-01-28T06:23:37.473635,Image Based Event,Uploaded Image,59,Image,Image,Low,Safe,Crowd is under control. Standard security measures are sufficient.
+1769581426286,2026-01-28T06:23:46.286607,Image Based Event,Uploaded Image,67,Image,Image,Low,Safe,Crowd is under control. Standard security measures are sufficient.

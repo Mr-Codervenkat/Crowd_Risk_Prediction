@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Crowd Prediction System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">
+                    <!-- <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg> -->
+                    <img src="Logo.png" alt="" height="80px" width="90px">
+                    AI Crowd Prediction System
+                </h1>
+                <nav class="nav">
+                    <a href="#dashboard" class="nav-link active" data-page="dashboard">Dashboard</a>
+                    <a href="#predict" class="nav-link" data-page="predict">Predict</a>
+                    <a href="#history" class="nav-link" data-page="history">History</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div id="dashboard-page" class="page active">
+                <section class="welcome-section">
+                    <h2 class="page-title">Welcome to AI-Based Crowd Prediction</h2>
+                    <p class="page-description">
+                        Advanced AI-powered system for predicting crowd density and managing public safety at events.
+                        Get real-time predictions, risk assessments, and actionable recommendations.
+                    </p>
+
+                    <!-- TOP STATS -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon"
+                                style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 11l3 3L22 4"></path>
+                                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <p class="stat-label">Total Predictions</p>
+                                <p class="stat-value" id="total-predictions">0</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon"
+                                style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M12 6v6l4 2"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <p class="stat-label">Active Monitoring</p>
+                                <p class="stat-value">Real-Time</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon"
+                                style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <p class="stat-label">AI Accuracy</p>
+                                <p class="stat-value" id="ai-accuracy">90%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RISK STATS -->
+                    <div class="dashboard-cards">
+                        <div class="card safe-card">
+                            <h3>Safe Events</h3>
+                            <p id="safe-count">0</p>
+                        </div>
+
+                        <div class="card warning-card">
+                            <h3>Warning Events</h3>
+                            <p id="warning-count">0</p>
+                        </div>
+
+                        <div class="card danger-card">
+                            <h3>Dangerous Events</h3>
+                            <p id="dangerous-count">0</p>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+
+
+            <div id="predict-page" class="page">
+                <h2 class="page-title">Generate AI Prediction</h2>
+                <div class="content-grid">
+
+                    <!-- LEFT SIDE: Manual Input -->
+                    <section class="input-section">
+                        <div class="card">
+                            <h3 class="card-title">Event Information</h3>
+
+                            <form id="prediction-form" class="form">
+                                <div class="form-group">
+                                    <label for="eventName" class="form-label">Event Name</label>
+                                    <input type="text" id="eventName" class="form-input"
+                                        placeholder="e.g., Summer Music Festival" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="location" class="form-label">Location</label>
+                                    <input type="text" id="location" class="form-input"
+                                        placeholder="e.g., Central Park, New York" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="crowdCount" class="form-label">Expected Crowd Count</label>
+                                    <input type="number" id="crowdCount" class="form-input" placeholder="e.g., 350"
+                                        min="0" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="eventType" class="form-label">Event Type</label>
+                                    <select id="eventType" class="form-select" required>
+                                        <option value="">Select Event Type</option>
+                                        <option value="Festival">Festival</option>
+                                        <option value="Political">Political</option>
+                                        <option value="College">College</option>
+                                        <option value="Concert">Concert</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="timeSlot" class="form-label">Time Slot</label>
+                                    <select id="timeSlot" class="form-select" required>
+                                        <option value="">Select Time Slot</option>
+                                        <option value="Morning">Morning</option>
+                                        <option value="Afternoon">Afternoon</option>
+                                        <option value="Evening">Evening</option>
+                                        <option value="Night">Night</option>
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary" id="submit-btn">
+                                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M12 16v-4"></path>
+                                        <path d="M12 8h.01"></path>
+                                    </svg>
+                                    Generate AI Prediction
+                                </button>
+                            </form>
+                        </div>
+                    </section>
+
+                    <!-- RIGHT SIDE: Image Upload -->
+                    <section class="image-section">
+                        <div class="card">
+                            <h3 class="card-title">Upload Crowd Image</h3>
+
+                            <input type="file" id="crowdImage" accept="image/*" class="form-input"
+                                onchange="previewImage(event)">
+
+                            <!-- 🔥 Image Preview -->
+                            <div id="imagePreviewBox" class="image-preview-box" style="display: none;">
+                                <img id="imagePreview" src="" alt="Preview">
+                            </div>
+
+                            <button style="margin-top: 20px;" class="btn btn-primary" onclick="predictFromImage()">
+                                Predict from Image
+                            </button>
+                        </div>
+                    </section>
+
+
+                </div>
+
+                <!-- 🔥 Prediction Results (FULL WIDTH BELOW) -->
+                <section class="output-section">
+                    <div id="loading-state" class="loading-state" style="display: none;">
+                        <div class="loading-spinner"></div>
+                        <p>AI is analyzing crowd patterns...</p>
+                    </div>
+
+                    <div id="results" style="display: none;">
+                        <div class="card">
+                            <h3 class="card-title">AI Prediction Results</h3>
+                            <div id="alert-box" class="alert-box">
+                                <div class="alert-header">
+                                    <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                    </svg>
+                                    <div>
+                                        <p class="alert-label">Crowd Density</p>
+                                        <p class="alert-value" id="density-value">-</p>
+                                    </div>
+                                </div>
+                                <div class="alert-divider"></div>
+                                <div class="alert-footer">
+                                    <p class="alert-label">Risk Level</p>
+                                    <p class="alert-value" id="risk-value">-</p>
+                                </div>
+                            </div>
+
+                            <div class="recommendation-box" id="recommendation-box">
+                                <h4 class="recommendation-title">AI Recommendation</h4>
+                                <p class="recommendation-text" id="recommendation-text">-</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Crowd Density Level</h3>
+                            <canvas id="barChart"></canvas>
+                        </div>
+
+                        <div class="card">
+                            <h3 class="card-title">Predicted Movement Trend</h3>
+                            <canvas id="lineChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <div id="history-page" class="page">
+                <h2 class="page-title">Prediction History</h2>
+                <div class="card">
+                    <div class="table-controls">
+                        <button id="clear-history" class="btn btn-secondary">Clear History</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="history-table">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>Event Name</th>
+                                    <th>Location</th>
+                                    <th>Crowd Count</th>
+                                    <th>Event Type</th>
+                                    <th>Time Slot</th>
+                                    <th>Density</th>
+                                    <th>Risk Level</th>
+                                </tr>
+                            </thead>
+                            <tbody id="history-tbody">
+                                <tr>
+                                    <td colspan="8" class="empty-state">No predictions yet. Generate your first
+                                        prediction!</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 AI Crowd Prediction System. All rights reserved.</p>
+            <p>Completed by Lathika S & Team</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
